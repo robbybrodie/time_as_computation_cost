@@ -2,6 +2,21 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/00_Run_All_Experiments.ipynb)
 
+## Theory in Brief
+
+This project explores **time as computational cost**. The core idea:
+
+- Each observer experiences time as a sequence of **Planck-scale "ticks"**—the finest possible resolution step.
+- Regions that demand **more computational work to resolve** (due to high velocity or deep gravitational potential) require **more Planck ticks per "frame"** of resolved reality.
+- If more ticks are consumed per frame, **fewer frames are experienced per unit of global evolution**, which manifests as **time dilation** for that region from an external observer's perspective.
+- Locally, nothing "feels slower": the observer's own tick rate feels normal. What changes is the **mapping** between local ticks and external events.
+
+Formally in this repo's notation, the **computational capacity** \(N\) and the **constitutive relation** \(B(N)\) govern how spacetime intervals are resolved. Increased computational load → effectively reduced capacity for "new frames" per unit external evolution → observed time dilation.
+
+> **Intuition:** Think of a fixed global budget of Planck ticks. If a region's physics becomes computationally expensive, more ticks are spent per frame there, so that region produces fewer frames in the same external progression. External clocks see it run slow.
+
+For details, see: [docs/model_in_brief.md](docs/model_in_brief.md) and the quick visual notebook: [notebooks/01_Time_Dilation_Ticks.ipynb](notebooks/01_Time_Dilation_Ticks.ipynb).
+
 **TACC** (Time as Computation Cost) - An exploratory conceptual framework investigating computational capacity as a foundation for spacetime geometry.
 
 📋 **[Complete Scientific Status & Integrity Statement →](SCIENTIFIC_STATUS.md)**
