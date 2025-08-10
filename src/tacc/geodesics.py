@@ -3,7 +3,7 @@
 import math
 from .constants import GM_SUN, R_SUN, c, ARCSEC_PER_RAD, AU
 from .constants import MERCURY_SEMI_MAJOR_AXIS_AU, MERCURY_ECCENTRICITY
-from .constants import OBSERVED_MERCURY_PRECESSION, SOLAR_LIMB_DEFLECTION_GR
+from .constants import OBSERVED_MERCURY_PRECESSION, SOLAR_LIMB_DEFLECTION_GR, MERCURY_ORBITAL_PERIOD_DAYS
 
 def light_deflection_angle(b, gamma, GM=GM_SUN, c_light=c):
     """
@@ -126,6 +126,25 @@ def mercury_precession_arcsec_per_century(gamma, beta=1.0):
 def integrate_geodesic(*args, **kwargs):
     """Stub for numerical geodesic integrator (to be implemented)."""
     pass
+
+def deflection_oneliner(gamma):
+    """
+    One-liner deflection calculation for verification purposes.
+    
+    This implements the exact formula: deflection = (1+γ)*2*GM/(R☉*c²)*ARCSEC
+    as suggested by the user for locking down the calculation.
+    
+    Args:
+        gamma (float): PPN parameter γ
+        
+    Returns:
+        float: Deflection angle in arcseconds at solar limb
+    """
+    GM = 1.32712440018e20      # m^3/s^2
+    Rsun = 6.957e8             # m
+    c_light = 299_792_458      # m/s
+    ARCSEC = 206_265           # arcsec/rad
+    return (1 + gamma) * 2 * GM / (Rsun * c_light**2) * ARCSEC
 
 # Unit tests / sanity checks
 def test_solar_limb_deflection():

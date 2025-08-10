@@ -251,10 +251,10 @@ def main():
         f.write("MAJOR FIX: Previous calculations incorrectly used b≈rs instead of b≈R☉\n")
         f.write("for solar limb deflection, giving results ~5 orders of magnitude too large.\n\n")
         
-        f.write("1. Light Bending (at solar limb, b=R☉):\n")
+        f.write("1. Light Bending (at solar limb, b ≈ R☉):\n")
         for i, gamma in enumerate(gamma_values):
             result = geodesics.solar_limb_deflection(gamma)
-            f.write(f"   γ={gamma}: {result['deflection_arcsec']:.3f} arcsec\n")
+            f.write(f"   γ = {gamma}: {result['deflection_arcsec']:.4f} arcsec\n")
         
         f.write(f"\n2. Shapiro Delay (b=5rs, Earth-Sun):\n")
         b_test_shapiro = 5.0 * schwarzschild_radius
