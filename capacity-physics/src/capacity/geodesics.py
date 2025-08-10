@@ -4,6 +4,10 @@ import numpy as np
 from .constants import GM_SUN, R_SUN, c, ARCSEC_PER_RAD, AU
 from .constants import MERCURY_SEMI_MAJOR_AXIS_AU, MERCURY_ECCENTRICITY
 from .constants import OBSERVED_MERCURY_PRECESSION, SOLAR_LIMB_DEFLECTION_GR
+try:
+    from .constants import MERCURY_ORBITAL_PERIOD_DAYS
+except ImportError:
+    MERCURY_ORBITAL_PERIOD_DAYS = 88  # days - fallback value
 
 def light_deflection_angle(b, gamma, GM=GM_SUN, c_light=c):
     """
