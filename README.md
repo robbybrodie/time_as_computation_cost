@@ -1,4 +1,5 @@
-# Time as Computation Cost
+# Time as Computation Cost[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/capacity-physics/experiments.ipynb)
+
 
 Welcome! This project explores a big idea: what if we could understand the universe by thinking about time as a kind of "cost" for doing things, like a price you pay for making changes or moving stuff around.
 
