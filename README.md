@@ -1,5 +1,13 @@
 # Time as Computation Cost (TACC)
 
+**If time dilation is the same effect in both Special and General Relativity — just driven by different inputs (velocity vs. gravity) — how can we honestly treat time as fundamental, and SR and GR as disconnected theories?**
+
+Mainstream physics treats Special and General Relativity as separate frameworks, largely due to their historical development, distinct mathematical formalisms, and different physical inputs. SR emerges from considerations of inertial reference frames and constant velocities, while GR arises from curved spacetime and gravitational fields. This separation has become entrenched in textbooks, research programs, and theoretical foundations.
+
+Both theories produce the same observable phenomenon — time dilation — yet this shared outcome has not led to a unifying mechanistic explanation in standard treatments. The mathematical machinery differs (Lorentz transformations versus metric tensors), the conceptual frameworks differ (flat versus curved spacetime), and the physical interpretations differ (kinematic versus geometric effects). However, the end result is identical: clocks run slower under specific conditions.
+
+This separation persists more from intellectual tradition and the absence of a common substrate model than from empirical necessity. The lack of a unified mechanistic foundation suggests that our current theoretical structure may be missing a deeper layer of physical reality — one that could explain why fundamentally different causes (velocity and gravity) produce identical effects on the flow of time.
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/00_Run_All_Experiments.ipynb)
 
 ## Theory in Brief
@@ -44,6 +52,15 @@ For details, see: [docs/model_in_brief.md](docs/model_in_brief.md) and the quick
 ## Theoretical Framework (Conceptual)
 
 This project explores whether **computational capacity constraints could provide an alternative foundation for spacetime geometry**. The core hypothesis: **time dilation might emerge from fundamental limitations in computational capacity**.
+
+**Physical Substrate - Waveform States:**
+The underlying mechanism operates through two distinct states of waveforms across the causal mesh:
+
+- **Smear**: Waveforms distributed across the causal mesh, representing the velocity-based form of time dilation in Special Relativity. High-velocity entities require increased computational resources to track their distributed quantum states across multiple causal nodes.
+
+- **Concentration**: Waveforms highly localized in spacetime, representing the gravity-based form of time dilation in General Relativity. Strong gravitational fields compress waveform information into smaller regions, demanding intensive computational resolution of the concentrated states.
+
+Both smear and concentration alter the complexity and resolution requirements of the underlying waveform substrate. Despite originating from divergent initial conditions (velocity versus gravitational fields), both states increase the computational load required to resolve the entity's quantum state, leading to the same observable outcome: **time dilation**.
 
 **Mathematical Framework:**
 - Spacetime metric: `ds² = -N²c²dt² + [1/B(N)]dx²`
