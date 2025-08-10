@@ -1,0 +1,63 @@
+TACC Black Hole Thermodynamics Results
+======================================
+
+M87* Black Hole Analysis:
+  Mass: 6.5e+09 M☉
+  Distance: 16.8 Mpc
+  Observed shadow: 42.0 ± 3.0 μas
+
+TACC Properties for different κ values (M87*):
+  κ=0.5:
+    Temperature: 7.39e-18 K
+    Entropy: 3.45e+96 k_B
+    Evaporation time: 1.57e+88 Gyr
+    N_horizon: 0.500
+    B_horizon: 0.779
+
+  κ=1.0:
+    Temperature: 5.76e-18 K
+    Entropy: 2.69e+96 k_B
+    Evaporation time: 4.26e+88 Gyr
+    N_horizon: 0.500
+    B_horizon: 0.607
+
+  κ=1.5:
+    Temperature: 4.48e-18 K
+    Entropy: 2.09e+96 k_B
+    Evaporation time: 1.16e+89 Gyr
+    N_horizon: 0.500
+    B_horizon: 0.472
+
+  κ=2.0:
+    Temperature: 3.49e-18 K
+    Entropy: 1.63e+96 k_B
+    Evaporation time: 3.14e+89 Gyr
+    N_horizon: 0.500
+    B_horizon: 0.368
+
+  κ=2.5:
+    Temperature: 2.72e-18 K
+    Entropy: 1.27e+96 k_B
+    Evaporation time: 8.55e+89 Gyr
+    N_horizon: 0.500
+    B_horizon: 0.287
+
+  κ=3.0:
+    Temperature: 2.12e-18 K
+    Entropy: 9.89e+95 k_B
+    Evaporation time: 2.32e+90 Gyr
+    N_horizon: 0.500
+    B_horizon: 0.223
+
+Physical Interpretation:
+- κ controls strength of computational capacity effects at horizon
+- N_horizon = 0.5 for all black holes (universal result)
+- B(N_horizon) = exp[-κ(1-0.5)] = exp[-κ/2] modifies thermodynamics
+- Information-theoretic entropy links to computational limits
+- Shadow size provides observational test of κ parameter
+
+Key Insights:
+- Black hole horizon represents maximum computational constraint
+- Hawking radiation modified by computational capacity limits
+- Information paradox potentially resolved through capacity bounds
+- EHT observations can constrain TACC parameter space

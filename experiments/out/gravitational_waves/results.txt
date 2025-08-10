@@ -1,0 +1,34 @@
+TACC Gravitational Wave Propagation Results
+==========================================
+
+Parameter Estimation Results:
+  Best-fit κ = 2.000002
+  χ² = 1961458.450
+  Fit successful: True
+  Binary masses: 36.0 + 29.0 M☉
+  Distance: 410 Mpc
+
+Multi-messenger Constraints (GW170817-like):
+  GW-EM time difference: 1.74 s
+  Distance: 130 Mpc
+  Speed constraint: |v_gw/c - 1| < 3×10⁻¹⁵
+
+TACC Dispersion Relations:
+  v_gw = c√B(N_background)
+  Time delay: Δt = d(1/v_gw - 1/c)
+  For κ=2: v_gw = c exactly (GR recovery)
+  For κ≠2: v_gw ≠ c (observable deviation)
+
+Physical Interpretation:
+- κ controls gravitational wave generation and propagation
+- Orbital dynamics modified by computational capacity
+- Wave speed depends on background computational capacity
+- Multi-messenger astronomy provides tight constraints
+- Binary inspirals probe strong-field regime of TACC
+
+Key Insights:
+- GW generation scales with B(N) at orbital separation
+- Phase evolution modified by computational constraints
+- Dispersion relation: ω² = k²c²B(N)
+- LIGO/Virgo detection provides κ constraints
+- Future space-based detectors (LISA) will improve constraints

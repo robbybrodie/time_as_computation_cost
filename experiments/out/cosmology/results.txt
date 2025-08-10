@@ -1,0 +1,24 @@
+TACC Cosmological Expansion Results
+===================================
+
+Best-fit parameters from synthetic supernova data:
+  κ = 2.138279
+  H₀ = 70.536 km/s/Mpc
+  Ωₘ = 0.285339
+  Ωᵈᵉ = 0.714661
+  χ² = 81.903
+  χ²/dof = 0.844
+  Degrees of freedom = 97
+  Fit successful: True
+
+Physical Interpretation:
+- κ controls how computational capacity affects cosmic expansion
+- κ = 2.0 recovers standard ΛCDM cosmology
+- κ ≠ 2.0 predicts deviations in distance-redshift relation
+- TACC provides natural dark energy through computational constraints
+
+Key Insights:
+- Scale factor a(t) is interpreted as computational capacity N
+- B(N) = exp[-κ(1-N)] modifies Friedmann equation
+- Early universe (small a) had reduced computational capacity
+- Present acceleration emerges from capacity constraints
