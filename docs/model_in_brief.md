@@ -1,10 +1,10 @@
 # Model in Brief: Why Time Dilates Here
 
 **Plain-English mechanism:**  
-Time is the count of **Planck-scale resolution ticks** an observer experiences. When a region is harder to resolve (because of high velocity or strong gravity), the **computational cost** to render one "frame" of that region increases. More Planck ticks are needed per frame. With a finite global evolution, that region emits **fewer frames per external unit** → it **appears slower** to outside observers (time dilation). Locally, the observer's tick cadence feels unchanged.
+Time is the count of **Planck-scale resolution ticks** an observer experiences. When an entity is harder to resolve (because of high velocity or strong gravity), the **computational cost** to render one "frame" of that entity increases. More Planck ticks are needed per frame. With a finite global evolution, that entity emits **fewer frames per external unit** → it **appears slower** to outside observers (time dilation). Locally, the observer's tick cadence feels unchanged.
 
 **Key elements (repo language):**
-- \(N\): a measure of **computational capacity** available to resolve a region.
+- \(N\): a measure of **computational capacity** available to resolve an entity.
 - \(B(N)\): a **constitutive law** that maps capacity to spatial/temporal resolution properties used by the metric and geodesics.
 - Metric structure (high level): temporal and spatial intervals are modulated by capacity-dependent factors derived from \(N\) and \(B(N)\).
 
