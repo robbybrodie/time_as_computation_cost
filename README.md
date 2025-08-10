@@ -1,44 +1,136 @@
-# Time as Computation Cost[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/capacity-physics/experiments.ipynb)
+# Time as Computation Cost
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/00_Run_All_Experiments.ipynb)
 
-Welcome! This project explores a big idea: what if we could understand the universe by thinking about time as a kind of "cost" for doing things, like a price you pay for making changes or moving stuff around.
+**TACC** (Time as Computation Cost) - A computational-capacity model of time dilation and gravitation.
 
-## What is this about?
+## Theory Overview
 
-Imagine you want to move something, change its shape, or make it do something new. In the real world, these things take time and energy. This project looks at the rules and patterns behind how much "cost" (in time) it takes to make changes in physical systems. It's a way to look at physics from a new angle—by asking, "How much does it 'cost' to make something happen?"
+This project explores a novel approach to understanding spacetime and gravity through computational capacity constraints. The core idea: **time dilation emerges from limitations in computational capacity**.
 
-## Who is this for?
+**Key Concepts:**
+- Spacetime metric: `ds² = -N²c²dt² + [1/B(N)]dx²`
+- Constitutive law: `B(N) = exp[-κ(1-N)]`
+- Computational capacity `N` acts as an effective gravitational potential
+- Parameter `κ` controls deviations from General Relativity
+- When `κ = 2`, the model exactly recovers Einstein's GR
 
-- Curious people who want to see physics in a new light
-- Researchers interested in the connection between time, energy, and information
-- Anyone who likes thinking about how the universe works, without needing to know advanced math
+## Run in Colab - One Click Experiments
 
-## What's inside?
+| Experiment | Notebook | Description |
+|-----------|----------|-------------|
+| **🚀 Run All Experiments** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/00_Run_All_Experiments.ipynb) | Complete experimental suite with all tests |
+| **Bandgaps Fitting** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/bandgaps_colab.ipynb) | DoF law fitting and model comparison |
+| **PPN Parameters** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/ppn_colab.ipynb) | Post-Newtonian parameter extraction |
+| **Solar System Tests** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/geodesics_colab.ipynb) | Light bending, Shapiro delay, Mercury precession |
 
-- **capacity-physics/**: The main code and tools for exploring these ideas
-- **experiments.ipynb** (in capacity-physics/): A ready-to-run notebook for experiments in Google Colab
-- **configs/**: Example settings for running experiments
-- **data/**: Example data and results
-- **reports/**: Space for summaries and findings
+### Quick Start
+1. Click any "Open in Colab" badge above
+2. Run the setup cell to clone the repository and install dependencies
+3. Execute experiment cells to see results
+4. Explore interactive parameter controls and visualizations
 
-## How do I get started?
+## Project Structure
 
-You don't need to be a physicist or a programmer to get something out of this project. Start by reading the explanations and looking at the examples. If you're comfortable with code, you can dive into the `capacity-physics` folder to see how the ideas are explored in practice.
+```
+time_as_computation_cost/
+├── src/tacc/                 # Main TACC package
+│   ├── metric.py            # Spacetime metric construction
+│   ├── constitutive.py      # B(N) constitutive law
+│   ├── ppn.py               # Post-Newtonian parameter extraction
+│   ├── geodesics.py         # Solar system tests
+│   ├── baselines.py         # Model comparison tools
+│   └── micro/               # Microphysical models
+├── experiments/             # Experiment runners
+│   ├── run_bandgaps.py     # DoF law fitting
+│   ├── run_ppn.py          # PPN parameter analysis
+│   └── run_geodesics.py    # Solar system tests
+├── notebooks/               # Colab-ready notebooks
+│   ├── 00_Run_All_Experiments.ipynb
+│   ├── bandgaps_colab.ipynb
+│   ├── ppn_colab.ipynb
+│   └── geodesics_colab.ipynb
+└── capacity-physics/        # Legacy structure (deprecated)
+```
 
-### Run Experiments in Google Colab
+## Key Results
 
-You can run experiments from this project directly in your browser using [Google Colab](https://colab.research.google.com/):
+### 🧮 Theoretical Framework
+- Time dilation emerges from computational capacity constraints
+- Free parameter κ controls deviation from General Relativity  
+- κ=2 gives exact agreement with Einstein's GR
 
-1. Open [Google Colab](https://colab.research.google.com/).
-2. Click "File" > "Upload notebook" and select `capacity-physics/experiments.ipynb` from this repository.
-3. Follow the instructions in the notebook to set up and run experiments.
+### 📊 Experimental Validation
+- **DoF Laws**: Successfully fits `DoF(N) = exp[-a(1-N)]` from synthetic data
+- **PPN Parameters**: Extracts γ=κ/2, β=1 with GR limit at κ=2
+- **Solar System**: Reproduces light bending (1.75"), Shapiro delay, Mercury precession (43.1"/century)
 
-This project is set up to work with an MCP server that helps automate Colab integration as part of the workflow. As the project evolves, more features may be added to streamline running and sharing experiments in Colab.
+### 🔬 Physical Insights
+- Computational capacity N acts as effective gravitational potential
+- Framework provides alternative foundation for spacetime geometry
+- Potentially testable deviations from GR in extreme conditions
 
-## Why does this matter?
+## Installation & Local Development
 
-By thinking about time as a kind of "cost," we might find new ways to understand everything from the tiniest particles to the biggest galaxies. It's a fresh perspective that could lead to new discoveries.
+```bash
+# Clone repository
+git clone https://github.com/robbybrodie/time_as_computation_cost.git
+cd time_as_computation_cost
+
+# Install package (editable)
+pip install -e .
+
+# Run individual experiments
+python experiments/run_bandgaps.py
+python experiments/run_ppn.py
+python experiments/run_geodesics.py
+
+# Results saved to experiments/out/
+```
+
+## Dependencies
+
+- Python 3.8+
+- NumPy, SciPy, Matplotlib
+- Pandas (for data handling)
+- PyYAML (for configuration)
+
+All dependencies are automatically installed in Colab environments.
+
+## Physical Motivation
+
+The TACC framework addresses fundamental questions:
+- Why does time dilate near massive objects?
+- Could spacetime geometry emerge from information-theoretic constraints?
+- What if computational limits underlie gravitational effects?
+
+By modeling time dilation through computational capacity constraints, we explore whether the computational complexity of physical processes could be a more fundamental description than traditional geometric approaches.
+
+## Future Directions
+
+- **Cosmological Applications**: Dark energy and expansion
+- **Quantum Gravity**: Information-theoretic foundations
+- **Experimental Tests**: Precision measurements to constrain κ
+- **Astrophysical Phenomena**: Black holes, neutron stars
+
+## Contributing
+
+We welcome contributions! Whether you're interested in:
+- Running experiments with real astrophysical data
+- Extending the theoretical framework
+- Improving computational methods
+- Adding new visualization tools
+
+See individual notebook troubleshooting sections for technical support.
+
+## Citation
+
+If you use this work in research, please cite:
+```
+Time as Computation Cost: A computational-capacity model of spacetime
+https://github.com/robbybrodie/time_as_computation_cost
+```
 
 ---
 
-If you have questions or want to learn more, check out the files in the `capacity-physics` folder or reach out through the project's GitHub page.
+*Explore how computational constraints might shape the fabric of spacetime itself.*
