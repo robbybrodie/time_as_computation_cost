@@ -1,0 +1,83 @@
+{
+  "parameters": {
+    "depth": 10,
+    "alpha": 0.1
+  },
+  "metrics": {
+    "node_count": 121,
+    "edge_count": 200,
+    "num_paths_t": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "front_profile_t": [
+      0.0,
+      1.0,
+      0.88,
+      1.42,
+      1.6,
+      1.96,
+      1.88,
+      2.08,
+      1.96,
+      2.26,
+      2.18
+    ],
+    "front_symmetry_deviation": 0.16042400799535253,
+    "theoretical_paths_top": 1024,
+    "actual_paths_top": 1024
+  },
+  "front_data": {
+    "times": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "mean_positions": [
+      0.0,
+      1.0,
+      0.88,
+      1.42,
+      1.6,
+      1.96,
+      1.88,
+      2.08,
+      1.96,
+      2.26,
+      2.18
+    ],
+    "std_positions": [
+      0.0,
+      0.0,
+      0.9927738916792685,
+      0.8146164741766521,
+      1.2328828005937953,
+      1.248358922746179,
+      1.5954936540143305,
+      1.426043477598071,
+      1.6965848048358794,
+      1.4874138630522442,
+      1.9818173477896495
+    ]
+  },
+  "files": {
+    "demo_plot": "/Users/robertbrodie/time_as_computation_cost/experiments/out/causal_diamond/diamond_demo.png"
+  }
+}

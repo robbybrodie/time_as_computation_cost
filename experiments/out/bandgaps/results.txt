@@ -1,0 +1,11 @@
+Bandgaps Fitting Experiment Results
+===================================
+
+DoF Law Fit: a = 1.992421 (true: 2.0)
+Beta Fit: β = 1.517370 (true: 1.5)
+
+Baseline Model Comparison (AIC/BIC):
+Polynomial-2: AIC=-696.92, BIC=-689.11
+Polynomial-3: AIC=-792.39, BIC=-781.97
+Exponential: AIC=-798.75, BIC=-793.54
+Power Law: AIC=-517.25, BIC=-512.04
