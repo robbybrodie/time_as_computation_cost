@@ -1,19 +1,41 @@
-# Time as Computation Cost
+# Time as Computation Cost (TACC)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/00_Run_All_Experiments.ipynb)
 
-**TACC** (Time as Computation Cost) - A computational-capacity model of time dilation and gravitation.
+**TACC** (Time as Computation Cost) - An exploratory conceptual framework investigating computational capacity as a foundation for spacetime geometry.
 
-## Theory Overview
+📋 **[Complete Scientific Status & Integrity Statement →](SCIENTIFIC_STATUS.md)**
 
-This project explores a novel approach to understanding spacetime and gravity through computational capacity constraints. The core idea: **time dilation emerges from limitations in computational capacity**.
+## ⚠️ **IMPORTANT SCIENTIFIC DISCLAIMER**
 
-**Key Concepts:**
+**This is a CONCEPTUAL EXPLORATION, not established physics.** This framework represents an initial attempt to explore whether computational limitations could provide an alternative foundation for understanding time dilation and spacetime geometry. 
+
+**Current Status:**
+- 🔬 **Exploratory phase**: Testing mathematical consistency and known-result reproduction
+- 📝 **Conceptual framework**: Core ideas defined but lack rigorous derivation from first principles  
+- 🧪 **Proof-of-concept**: Demonstrates mathematical viability, not physical truth
+- 🤝 **Open for collaboration**: Designed for community input and development
+
+**What This IS:**
+- A testable mathematical framework with clear parameterization
+- An accessible platform for exploring computational approaches to spacetime
+- A starting point for discussion and collaborative development
+
+**What This IS NOT:**
+- A replacement for General Relativity
+- A theory derived from fundamental physical principles
+- Ready for publication in physics journals
+
+## Theoretical Framework (Conceptual)
+
+This project explores whether **computational capacity constraints could provide an alternative foundation for spacetime geometry**. The core hypothesis: **time dilation might emerge from fundamental limitations in computational capacity**.
+
+**Mathematical Framework:**
 - Spacetime metric: `ds² = -N²c²dt² + [1/B(N)]dx²`
-- Constitutive law: `B(N) = exp[-κ(1-N)]`
-- Computational capacity `N` acts as an effective gravitational potential
+- Constitutive law: `B(N) = exp[-κ(1-N)]` *(chosen for mathematical convenience)*
+- Computational capacity `N` *(physical interpretation to be determined)*
 - Parameter `κ` controls deviations from General Relativity
-- When `κ = 2`, the model exactly recovers Einstein's GR
+- When `κ = 2`, the model exactly recovers Einstein's GR *(by design)*
 
 ## Run in Colab - One Click Experiments
 
@@ -97,31 +119,85 @@ python experiments/run_geodesics.py
 
 All dependencies are automatically installed in Colab environments.
 
-## Physical Motivation
+## 🔍 **Current Limitations & Open Questions**
 
-The TACC framework addresses fundamental questions:
-- Why does time dilate near massive objects?
-- Could spacetime geometry emerge from information-theoretic constraints?
-- What if computational limits underlie gravitational effects?
+**Scientific Honesty:** This framework currently has significant gaps that need addressing:
 
-By modeling time dilation through computational capacity constraints, we explore whether the computational complexity of physical processes could be a more fundamental description than traditional geometric approaches.
+### Fundamental Issues Requiring Resolution
+- **No microscopic derivation**: Why B(N) = exp[-κ(1-N)] specifically? Need theoretical justification
+- **Undefined core concept**: What is "computational capacity N" physically? How is it measured?
+- **Parameter tuning**: κ=2 chosen to match GR, not derived from principles
+- **Limited scope**: Only tested against known solar system results
 
-## Future Directions
+### Mathematical/Implementation Gaps  
+- **Synthetic data**: "Bandgaps experiments" use generated data, not real measurements
+- **Missing physics**: No connection to thermodynamics, quantum mechanics, or information theory
+- **Circular validation**: Reproduces GR by design, doesn't make novel predictions
 
-- **Cosmological Applications**: Dark energy and expansion
-- **Quantum Gravity**: Information-theoretic foundations
-- **Experimental Tests**: Precision measurements to constrain κ
-- **Astrophysical Phenomena**: Black holes, neutron stars
+### Development History (Transparency)
+- **Bug fixes**: Major calculation error (5 orders of magnitude) recently corrected
+- **Rapid development**: 5-day concept-to-framework timeline indicates preliminary status
+- **Ongoing refinement**: Multiple debugging files show active development
 
-## Contributing
+## Physical Motivation & Vision
 
-We welcome contributions! Whether you're interested in:
-- Running experiments with real astrophysical data
-- Extending the theoretical framework
-- Improving computational methods
-- Adding new visualization tools
+**The Big Question:** Could spacetime geometry emerge from computational constraints rather than mass-energy?
 
-See individual notebook troubleshooting sections for technical support.
+**Core Hypothesis:** Time dilation might reflect fundamental limitations in the computational capacity available for physical processes.
+
+**Why This Might Matter:**
+- Information-theoretic foundations for gravity
+- Alternative perspective on spacetime emergence  
+- Potential connections to quantum computation and thermodynamics
+- New experimental approaches to testing spacetime structure
+
+**Current Status:** Mathematical framework established, physical foundation needs development.
+
+## 🚧 **Where We Need Help**
+
+This framework is designed for **collaborative development**. Key areas needing work:
+
+### Theoretical Development
+1. **Microscopic foundations**: Derive B(N) from quantum computation, thermodynamics, or information theory
+2. **Physical definition of N**: Connect "computational capacity" to measurable quantities
+3. **First-principles derivation**: Why this metric form from fundamental physics?
+
+### Experimental Program  
+1. **Real data**: Replace synthetic bandgaps with actual experimental measurements
+2. **Novel predictions**: Find testable differences from General Relativity
+3. **Precision tests**: Identify experiments that could constrain κ ≠ 2
+
+### Mathematical Extensions
+1. **Cosmological applications**: Dark energy and expansion dynamics
+2. **Strong field regime**: Black holes, neutron stars, gravitational waves  
+3. **Quantum extensions**: Information-theoretic limits and quantum geometry
+
+### Implementation Improvements
+1. **Numerical methods**: Better geodesic integration and field solvers
+2. **Visualization tools**: Interactive parameter exploration
+3. **Code quality**: More robust testing and validation frameworks
+
+## 🤝 **Contributing**
+
+**All skill levels welcome!** Whether you're:
+
+- **Physics students**: Help explore the conceptual foundations
+- **Researchers**: Contribute theoretical insights or experimental ideas  
+- **Programmers**: Improve numerical methods and visualization
+- **Data scientists**: Apply framework to real astrophysical datasets
+- **Skeptics**: Provide critical analysis and identify weak points
+
+**How to Contribute:**
+1. **Try the experiments**: Run notebooks and explore parameter space
+2. **Ask questions**: Open issues about unclear concepts or implementation
+3. **Share ideas**: Propose connections to established physics
+4. **Submit improvements**: Code enhancements, documentation, or analysis
+
+**Scientific Collaboration Principles:**
+- **Transparency**: All limitations and uncertainties clearly stated
+- **Reproducibility**: All code and data openly available
+- **Constructive criticism**: Skepticism and critical analysis welcomed
+- **Incremental progress**: Building understanding step-by-step
 
 ## Citation
 
