@@ -102,7 +102,7 @@ def main():
     ax.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig(out_dir / "light_bending_corrected.png", dpi=160, bbox_inches='tight')
+    plt.savefig(out_dir / "light_bending.png", dpi=160, bbox_inches='tight')
     plt.close()
     
     # Display corrected solar limb values
@@ -148,7 +148,7 @@ def main():
     ax.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig(out_dir / "shapiro_delay_corrected.png", dpi=160, bbox_inches='tight')
+    plt.savefig(out_dir / "shapiro_delay.png", dpi=160, bbox_inches='tight')
     plt.close()
     
     # Mercury perihelion precession
@@ -240,11 +240,11 @@ def main():
     ax3.grid(True, alpha=0.3)
     
     plt.tight_layout()
-    plt.savefig(out_dir / "solar_system_tests_corrected.png", dpi=160, bbox_inches='tight')
+    plt.savefig(out_dir / "solar_system_tests.png", dpi=160, bbox_inches='tight')
     plt.close()
     
     # Save CORRECTED results to file
-    with open(out_dir / "results_corrected.txt", 'w') as f:
+    with open(out_dir / "results.txt", 'w') as f:
         f.write("Geodesics Experiment Results (CORRECTED)\n")
         f.write("========================================\n\n")
         

@@ -163,7 +163,7 @@ def test_solar_limb_deflection():
     return True
 
 def test_deflection_scaling():
-    """Test deflection scaling: δθ(γ=0.5) : δθ(γ=1.0) : δθ(γ=1.5) ≈ 1.5 : 2.0 : 2.5"""
+    """Test deflection scaling: δθ(γ=0.5) : δθ(γ=1.0) : δθ(γ=1.5) ≈ 0.75 : 1.0 : 1.25"""
     gamma_values = [0.5, 1.0, 1.5]
     deflections = []
     
@@ -173,7 +173,11 @@ def test_deflection_scaling():
     
     # Normalize by γ=1.0 case
     ratios = [d / deflections[1] for d in deflections]
-    expected_ratios = [1.5, 2.0, 2.5]
+    # FIXED: Correct expected ratios based on (1+γ) scaling
+    # γ=0.5: (1+0.5)/(1+1.0) = 1.5/2.0 = 0.75
+    # γ=1.0: (1+1.0)/(1+1.0) = 2.0/2.0 = 1.0  
+    # γ=1.5: (1+1.5)/(1+1.0) = 2.5/2.0 = 1.25
+    expected_ratios = [0.75, 1.0, 1.25]
     
     tolerance = 0.02
     for i, (actual, expected) in enumerate(zip(ratios, expected_ratios)):
