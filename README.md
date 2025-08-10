@@ -15,6 +15,7 @@ Imagine you want to move something, change its shape, or make it do something ne
 ## What's inside?
 
 - **capacity-physics/**: The main code and tools for exploring these ideas
+- **experiments.ipynb** (in capacity-physics/): A ready-to-run notebook for experiments in Google Colab
 - **configs/**: Example settings for running experiments
 - **data/**: Example data and results
 - **reports/**: Space for summaries and findings
@@ -22,6 +23,16 @@ Imagine you want to move something, change its shape, or make it do something ne
 ## How do I get started?
 
 You don't need to be a physicist or a programmer to get something out of this project. Start by reading the explanations and looking at the examples. If you're comfortable with code, you can dive into the `capacity-physics` folder to see how the ideas are explored in practice.
+
+### Run Experiments in Google Colab
+
+You can run experiments from this project directly in your browser using [Google Colab](https://colab.research.google.com/):
+
+1. Open [Google Colab](https://colab.research.google.com/).
+2. Click "File" > "Upload notebook" and select `capacity-physics/experiments.ipynb` from this repository.
+3. Follow the instructions in the notebook to set up and run experiments.
+
+This project is set up to work with an MCP server that helps automate Colab integration as part of the workflow. As the project evolves, more features may be added to streamline running and sharing experiments in Colab.
 
 ## Why does this matter?
 
