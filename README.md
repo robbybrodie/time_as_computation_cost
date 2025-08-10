@@ -37,17 +37,34 @@ This project explores whether **computational capacity constraints could provide
 - Parameter `κ` controls deviations from General Relativity
 - When `κ = 2`, the model exactly recovers Einstein's GR *(by design)*
 
+## Experiment Rationales
+
+**Why does each experiment exist? What role does it play in testing the TACC framework?**
+
+| Experiment | Physical Scale | What It Tests | Why It's Essential | Expected Result |
+|------------|----------------|---------------|-------------------|-----------------|
+| **Causal Diamond** | Microscopic | Lightcone lattice structure and computational node connectivity | Foundation test: Can computational nodes form consistent spacetime geometry? Like checking if your building blocks fit together before constructing the theory. | Symmetric lightcones with proper causal structure |
+| **Tension Bandgaps** | Microscopic | Parameter recovery in synthetic data with noise and model selection | Robustness test: Can we reliably extract TACC parameters from noisy data? Essential for real-world applications. | Accurate recovery of α, β parameters despite noise |
+| **Mode Crowding** | Mesoscopic | Critical point behavior when computational modes become occupied | Phase transition test: Does the model exhibit realistic critical behavior? Tests if computational "traffic jams" create observable effects. | Critical point at finite occupancy ratio |
+| **Bandgaps DoF** | Mesoscopic | Degrees of freedom scaling laws with computational capacity | Scaling test: Does computational capacity follow expected statistical mechanics? Validates connection to thermodynamics. | DoF ∝ exp[-α(1-N)] scaling law |
+| **PPN Parameters** | Macroscopic | Post-Newtonian parameter extraction (γ, β) from metric | Weak-field test: Does TACC reduce to known physics in familiar limits? The "sanity check" - if PPN fails, the model is dead on arrival. | γ = κ/2, β = 1, with κ ≈ 2 for GR limit |
+| **Solar System Tests** | Macroscopic | Light bending, Shapiro delay, Mercury precession | Historical validation: Can TACC reproduce the classic tests that made Einstein famous? These are precision, well-measured effects. | 1.75" deflection, ~100μs delays, 43"/century precession |
+| **Cosmological Expansion** | Cosmological | FLRW metric consistency and expansion history H(z) | Large-scale test: Does TACC work for the entire universe, not just local gravity? Bridge between micro and macro physics. | Dark energy emerges from computational constraints |
+| **Black Hole Thermodynamics** | Astrophysical | Hawking temperature and entropy scaling with computational capacity | Extreme gravity test: Can TACC handle the most extreme spacetime conditions? Tests information-theoretic connections. | Modified Hawking radiation with κ dependence |
+| **Gravitational Waves** | Astrophysical | Wave propagation speed and phase evolution in TACC metric | Dynamic spacetime test: Does TACC predict correct wave behavior? Critical for multi-messenger astronomy. | Wave speed modifications and phase shifts |
+
 ## Run in Colab - One Click Experiments
 
-| Experiment | Notebook | Description |
-|-----------|----------|-------------|
-| **🚀 Run All Experiments** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/00_Run_All_Experiments.ipynb) | Complete experimental suite with all tests |
-| **Causal Diamond** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/01_Causal_Diamond_Colab.ipynb) | Lightcone lattice construction and propagation |
-| **Tension Bandgaps** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/02_Tension_Bandgaps_Colab.ipynb) | Micro fitting with model selection |
-| **Mode Crowding** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/03_Mode_Crowding_Colab.ipynb) | Occupancy vs capacity analysis |
-| **Bandgaps Fitting** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/bandgaps_colab.ipynb) | DoF law fitting and model comparison |
-| **PPN Parameters** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/ppn_colab.ipynb) | Post-Newtonian parameter extraction |
-| **Solar System Tests** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/geodesics_colab.ipynb) | Light bending, Shapiro delay, Mercury precession |
+| Experiment | Notebook | Physical Scale | Key Observable |
+|-----------|----------|----------------|----------------|
+| **🚀 Run All Experiments** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/00_Run_All_Experiments.ipynb) | All scales | Complete test suite |
+| **Causal Diamond** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/01_Causal_Diamond_Colab.ipynb) | Microscopic | Lightcone geometry |
+| **Tension Bandgaps** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/02_Tension_Bandgaps_Colab.ipynb) | Microscopic | Parameter recovery |
+| **Mode Crowding** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/03_Mode_Crowding_Colab.ipynb) | Mesoscopic | Critical transitions |
+| **Bandgaps Fitting** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/bandgaps_colab.ipynb) | Mesoscopic | DoF scaling laws |
+| **PPN Parameters** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/ppn_colab.ipynb) | Macroscopic | Weak-field limits |
+| **Solar System Tests** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/geodesics_colab.ipynb) | Macroscopic | Classical GR tests |
+| **Cosmological Expansion** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/cosmology_colab.ipynb) | Cosmological | Dark energy |
 
 ### Quick Start
 1. Click any "Open in Colab" badge above
