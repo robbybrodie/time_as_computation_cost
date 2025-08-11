@@ -1,0 +1,22 @@
+# Default configuration for TACC
+
+# Microlaw configuration
+microlaw: ppn
+microlaw_params: {}
+
+# B(N) family configuration
+bn_family: exponential
+bn_params:
+  kappa: 2.0
+
+# Fitment configuration
+fitment:
+  name: no_fit
+  params: {}
+
+# Experiment configuration (optional)
+experiment:
+  output_dir: "output"
+  save_plots: true
+  plot_format: "png"
+  plot_dpi: 160

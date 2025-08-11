@@ -32,6 +32,9 @@ dev = [
 "Repository" = "https://github.com/robbybrodie/time_as_computation_cost.git"
 "Issues" = "https://github.com/robbybrodie/time_as_computation_cost/issues"
 
+[project.scripts]
+tacc = "tacc.cli.main:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

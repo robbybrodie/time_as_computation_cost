@@ -9,5 +9,8 @@ from . import micro
 from . import cosmology
 from . import black_holes
 from . import gravitational_waves
+from . import core
+from . import fitments
+from . import cli
 
 __version__ = "0.1.0"
