@@ -38,7 +38,7 @@ Importantly, in this model spacetime curvature emerges from this waveform stacki
 
 This computational framework provides a unified mechanism for understanding numerous relativistic and gravitational phenomena:
 
-• **Speed of light (c)** as the maximum substrate update rate—the cosmic computer's fundamental processing speed limit
+• **Speed of light (c)** as the maximum substrate update rate—the cosmic computer's fundamental processing speed limit. Without c acting as a universal rate cap, local capacity saturations (like those in black holes) could propagate instantly, allowing a black hole to expand and consume the entire universe. In this view, c not only limits motion, it bounds how quickly extreme-capacity regions can grow, making it conceptually possible for some black holes to "flicker"—briefly forming and dissolving as local load fluctuates around the saturation point.
 
 • **Arrow of time** from the one-way spending of computational capacity to resolve increasingly complex waveform stacks
 
