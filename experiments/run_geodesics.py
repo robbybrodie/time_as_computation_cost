@@ -28,6 +28,37 @@ def main():
     print("Running Geodesics Experiment...")
     print("=" * 50)
     
+    # Check for fitment state from interactive widgets
+    default_gamma_values = [0.5, 1.0, 1.5, 2.0]
+    
+    try:
+        from tacc.core.experiment_bridge import get_fitted_kappa, is_fitment_active, get_active_fitment_info
+        
+        if is_fitment_active():
+            fitment_info = get_active_fitment_info()
+            fitted_kappa = get_fitted_kappa()
+            
+            print(f"🎯 USING FITMENT: {fitment_info['name']}")
+            print(f"   Fitted κ: {fitted_kappa:.4f}")
+            print("   This affects PPN parameters and geodesic calculations!")
+            
+            # Calculate fitted gamma from kappa relationship: gamma = kappa/2
+            fitted_gamma = fitted_kappa / 2.0
+            
+            # Use fitted gamma as primary value, but also test range around it
+            gamma_values = [fitted_gamma * 0.5, fitted_gamma * 0.75, fitted_gamma, fitted_gamma * 1.25, fitted_gamma * 1.5]
+            
+            print(f"   Fitted γ: {fitted_gamma:.4f}")
+            print(f"   Testing γ range: [{min(gamma_values):.2f}, {max(gamma_values):.2f}]")
+            
+        else:
+            print("🔧 No active fitment - using default parameter range")
+            gamma_values = default_gamma_values
+            
+    except ImportError:
+        print("🔧 Fitment bridge not available - using default parameter range")
+        gamma_values = default_gamma_values
+    
     # Run unit tests first
     print("Running sanity checks...")
     if not geodesics.run_all_tests():
@@ -37,8 +68,6 @@ def main():
     print("\nPROCEEDING WITH FULL EXPERIMENT...")
     print("=" * 50)
     
-    # Test different gamma values
-    gamma_values = [0.5, 1.0, 1.5, 2.0]
     kappa_values = [2*g for g in gamma_values]  # kappa = 2*gamma from PPN
     
     # Display PPN parameter relationships
