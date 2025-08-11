@@ -72,6 +72,41 @@ Both smear and concentration alter the complexity and resolution requirements of
 - Parameter `κ` controls deviations from General Relativity
 - When `κ = 2`, the model exactly recovers Einstein's GR *(by design)*
 
+## What This Repository Actually Is: A Research Laboratory
+
+**This is not a complete physics theory. This is a computational research platform.**
+
+We built this repository as a **laboratory for exploring computational approaches to spacetime geometry**. The core insight that motivated this work was simple: if both Special and General Relativity produce the same observable outcome (time dilation) through different input mechanisms (velocity vs. gravity), perhaps there's a deeper substrate they both emerge from.
+
+**Why We Needed This Lab:**
+
+1. **Missing Infrastructure**: There wasn't a clean, parameterized framework for testing computational approaches to gravity. Most work in this area is either purely theoretical or uses custom, non-reproducible code.
+
+2. **Systematic Testing**: To explore whether computational constraints could underlie spacetime geometry, we needed a platform that could:
+   - Test different constitutive laws B(N) as theories develop
+   - Validate against known physics as a sanity check
+   - Extract parameters from data (real or synthetic) 
+   - Generate predictions across multiple physical scales
+
+3. **Collaborative Development**: The questions this work addresses—connections between computation, information, and spacetime—require input from diverse fields. We needed an accessible platform where physicists, computer scientists, and mathematicians could contribute.
+
+4. **Educational Value**: Whether or not the core hypothesis proves correct, the framework serves as an excellent platform for teaching metric theories, parameter estimation, and model comparison techniques.
+
+**What the Lab Enables:**
+- Rapid testing of different physical interpretations for "computational capacity N"
+- Easy swapping of constitutive laws B(N) as theory develops
+- Parameter extraction and uncertainty quantification
+- Multi-scale validation from quantum to cosmological physics
+- Reproducible experiments that others can build upon
+
+**What We're NOT Claiming:**
+- That this is established physics (it isn't)
+- That we've solved quantum gravity (we haven't)
+- That our current B(N) functional form is correct (it's a placeholder)
+- That computational capacity N has a specific physical meaning (to be determined)
+
+**The Goal:** Provide the computational infrastructure needed to systematically explore whether computational constraints could provide a foundation for understanding spacetime geometry. The lab is ready; now we need the physics to fill it.
+
 ## Experiment Rationales
 
 **Why does each experiment exist? What role does it play in testing the TACC framework?**
