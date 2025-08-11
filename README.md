@@ -1,12 +1,15 @@
 # Time as Computation Cost (TACC)
 
+I was folding my kid's laundry — a rare moment of quiet.
+That time and space (pun intended) let my mind wander, and a thought hit me:
+
 **If time dilation is the same effect in both Special and General Relativity — just driven by different inputs (velocity vs. gravity) — how can we honestly treat time as fundamental, and SR and GR as disconnected theories?**
 
-Mainstream physics treats Special and General Relativity as separate frameworks, largely due to their historical development, distinct mathematical formalisms, and different physical inputs. SR emerges from considerations of inertial reference frames and constant velocities, while GR arises from curved spacetime and gravitational fields. This separation has become entrenched in textbooks, research programs, and theoretical foundations.
-
-Both theories produce the same observable phenomenon — time dilation — yet this shared outcome has not led to a unifying mechanistic explanation in standard treatments. The mathematical machinery differs (Lorentz transformations versus metric tensors), the conceptual frameworks differ (flat versus curved spacetime), and the physical interpretations differ (kinematic versus geometric effects). However, the end result is identical: clocks run slower under specific conditions.
-
-This separation persists more from intellectual tradition and the absence of a common substrate model than from empirical necessity. The lack of a unified mechanistic foundation suggests that our current theoretical structure may be missing a deeper layer of physical reality — one that could explain why fundamentally different causes (velocity and gravity) produce identical effects on the flow of time.
+Both lead to the same measurable outcome: the slowing of proper time relative to another frame.
+Yet physics still frames them as separate conceptual worlds — SR for motion in flat spacetime, GR for curvature in the presence of mass and energy.
+This split persists mostly because they emerged from different historical problems, use different mathematical formalisms, and lack an agreed-upon common substrate.
+Without such a substrate model, the matching outputs are treated as coincidence rather than consequence.
+Here, I propose the coincidence is no coincidence — they are the same process, seen through different input channels.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/robbybrodie/time_as_computation_cost/blob/main/notebooks/00_Run_All_Experiments.ipynb)
 
