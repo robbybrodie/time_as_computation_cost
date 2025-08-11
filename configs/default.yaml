@@ -1,22 +1,34 @@
-# Default configuration for TACC
+# Default TACC Configuration Profile
+# Single source of truth for all settings across CLI and notebooks
 
-# Microlaw configuration
+# Core Physics Settings
 microlaw: ppn
 microlaw_params: {}
 
-# B(N) family configuration
 bn_family: exponential
 bn_params:
   kappa: 2.0
 
-# Fitment configuration
+# Fitment Configuration
 fitment:
   name: no_fit
   params: {}
 
-# Experiment configuration (optional)
+# Experiment Settings
 experiment:
-  output_dir: "output"
+  output_dir: output
   save_plots: true
-  plot_format: "png"
+  plot_format: png
   plot_dpi: 160
+
+# Advanced Settings
+advanced:
+  enable_validation: true
+  enable_stamping: true
+  seed_strategy: parameter_dependent  # or "fixed" or "random"
+
+# Notebook Settings  
+notebook:
+  show_chooser_widgets: true
+  auto_display_components: true
+  widget_style: compact  # or "detailed"

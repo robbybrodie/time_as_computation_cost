@@ -1,0 +1,37 @@
+# Development TACC Configuration Profile
+# Enhanced settings for development and testing
+
+# Core Physics Settings
+microlaw: ppn
+microlaw_params: {}
+
+bn_family: exponential  
+bn_params:
+  kappa: 2.0
+
+# Fitment Configuration
+fitment:
+  name: single_param
+  params:
+    target_param: kappa
+    init: 1.5
+    max_iter: 50
+
+# Experiment Settings
+experiment:
+  output_dir: dev_output
+  save_plots: true
+  plot_format: png
+  plot_dpi: 120  # Lower DPI for faster dev iterations
+
+# Advanced Settings
+advanced:
+  enable_validation: true
+  enable_stamping: true
+  seed_strategy: parameter_dependent
+
+# Notebook Settings  
+notebook:
+  show_chooser_widgets: true
+  auto_display_components: true
+  widget_style: detailed  # More detailed for development

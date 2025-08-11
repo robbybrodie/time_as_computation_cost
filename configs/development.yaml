@@ -1,0 +1,21 @@
+advanced:
+  enable_stamping: true
+  enable_validation: true
+  seed_strategy: parameter_dependent
+bn_family: exponential
+bn_params:
+  kappa: 2.0
+experiment:
+  output_dir: output
+  plot_dpi: 160
+  plot_format: png
+  save_plots: true
+fitment:
+  name: no_fit
+  params: {}
+microlaw: ppn
+microlaw_params: {}
+notebook:
+  auto_display_components: true
+  show_chooser_widgets: true
+  widget_style: compact
