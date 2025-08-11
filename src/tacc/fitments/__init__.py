@@ -3,5 +3,6 @@
 # Import fitments to register them automatically
 from . import no_fit
 from . import single_param
+from . import linear_fit
 
-__all__ = ["no_fit", "single_param"]
+__all__ = ["no_fit", "single_param", "linear_fit"]
