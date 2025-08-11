@@ -8,6 +8,38 @@ import networkx as nx
 from typing import Dict, Any, Union
 import json
 import math
+import hashlib
+
+
+def _generate_parameter_seed(depth: int, alpha: float) -> int:
+    """
+    Generate a reproducible seed based on experiment parameters.
+    
+    This ensures that:
+    - Different parameter combinations get different seeds → different random patterns
+    - Same parameter combinations always get the same seed → reproducible results
+    - The seed is deterministic but varies meaningfully with parameters
+    
+    Args:
+        depth (int): Diamond lattice depth
+        alpha (float): Capacity gradient parameter
+        
+    Returns:
+        int: Seed value for numpy.random.seed()
+    """
+    # Create a string representation of parameters with sufficient precision
+    param_string = f"diamond_depth_{depth}_alpha_{alpha:.8f}"
+    
+    # Generate hash from parameters
+    hash_obj = hashlib.md5(param_string.encode())
+    
+    # Convert first 4 bytes of hash to integer for seed
+    seed = int.from_bytes(hash_obj.digest()[:4], byteorder='big')
+    
+    # Keep within valid numpy random seed range (0 to 2^32-1)
+    seed = seed % (2**32)
+    
+    return seed
 
 
 def run_demo(**kwargs) -> plt.Figure:
@@ -22,13 +54,14 @@ def run_demo(**kwargs) -> plt.Figure:
     Returns:
         matplotlib.figure.Figure: The lattice visualization
     """
-    # Set random seed for reproducibility
-    np.random.seed(42)
-    
     # Parse parameters
     depth = kwargs.get('depth', 10)
     alpha = kwargs.get('alpha', 0.1)
     show_front = kwargs.get('show_front', True)
+    
+    # Set parameter-dependent random seed for reproducible but parameter-specific results
+    seed = _generate_parameter_seed(depth, alpha)
+    np.random.seed(seed)
     
     # Create diamond lattice
     G = create_diamond_lattice(depth)
@@ -104,13 +137,14 @@ def run_experiment(**kwargs) -> Dict[str, Any]:
     Returns:
         dict: Experiment results containing metrics and file paths
     """
-    # Set random seed for reproducibility
-    np.random.seed(42)
-    
     # Parse parameters
     depth = kwargs.get('depth', 10)
     alpha = kwargs.get('alpha', 0.1)
     output_dir = kwargs.get('output_dir', None)
+    
+    # Set parameter-dependent random seed for reproducible but parameter-specific results
+    seed = _generate_parameter_seed(depth, alpha)
+    np.random.seed(seed)
     
     # Create diamond lattice
     G = create_diamond_lattice(depth)

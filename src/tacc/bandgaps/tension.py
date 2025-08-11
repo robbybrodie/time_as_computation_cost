@@ -9,6 +9,40 @@ from sklearn.model_selection import KFold
 from sklearn.metrics import mean_squared_error
 from typing import Dict, Any, List, Tuple
 import json
+import hashlib
+
+
+def _generate_parameter_seed(n_points: int, noise_sigma: float, a_true: float, beta_true: float) -> int:
+    """
+    Generate a reproducible seed based on experiment parameters.
+    
+    This ensures that:
+    - Different parameter combinations get different seeds → different synthetic data
+    - Same parameter combinations always get the same seed → reproducible results
+    - The seed is deterministic but varies meaningfully with parameters
+    
+    Args:
+        n_points (int): Number of data points
+        noise_sigma (float): Noise level 
+        a_true (float): True exponential parameter
+        beta_true (float): True power law parameter
+        
+    Returns:
+        int: Seed value for numpy.random.seed()
+    """
+    # Create a string representation of parameters with sufficient precision
+    param_string = f"bandgaps_n_{n_points}_sigma_{noise_sigma:.8f}_a_{a_true:.8f}_beta_{beta_true:.8f}"
+    
+    # Generate hash from parameters
+    hash_obj = hashlib.md5(param_string.encode())
+    
+    # Convert first 4 bytes of hash to integer for seed
+    seed = int.from_bytes(hash_obj.digest()[:4], byteorder='big')
+    
+    # Keep within valid numpy random seed range (0 to 2^32-1)
+    seed = seed % (2**32)
+    
+    return seed
 
 
 def run_demo(**kwargs) -> plt.Figure:
@@ -24,14 +58,15 @@ def run_demo(**kwargs) -> plt.Figure:
     Returns:
         matplotlib.figure.Figure: The fitting visualization
     """
-    # Set random seed for reproducibility
-    np.random.seed(42)
-    
     # Parse parameters
     n_points = kwargs.get('n_points', 50)
     noise_sigma = kwargs.get('noise_sigma', 0.05)
     a_true = kwargs.get('a_true', 2.0)
     beta_true = kwargs.get('beta_true', 1.5)
+    
+    # Set parameter-dependent random seed for reproducible but parameter-specific results
+    seed = _generate_parameter_seed(n_points, noise_sigma, a_true, beta_true)
+    np.random.seed(seed)
     
     # Generate synthetic data
     data = generate_synthetic_data(n_points, noise_sigma, a_true, beta_true)
@@ -142,15 +177,16 @@ def run_experiment(**kwargs) -> Dict[str, Any]:
     Returns:
         dict: Experiment results containing fitted parameters and model comparison
     """
-    # Set random seed for reproducibility
-    np.random.seed(42)
-    
     # Parse parameters
     n_points = kwargs.get('n_points', 50)
     noise_sigma = kwargs.get('noise_sigma', 0.05)
     a_true = kwargs.get('a_true', 2.0)
     beta_true = kwargs.get('beta_true', 1.5)
     output_dir = kwargs.get('output_dir', None)
+    
+    # Set parameter-dependent random seed for reproducible but parameter-specific results
+    seed = _generate_parameter_seed(n_points, noise_sigma, a_true, beta_true)
+    np.random.seed(seed)
     
     # Generate synthetic data
     data = generate_synthetic_data(n_points, noise_sigma, a_true, beta_true)

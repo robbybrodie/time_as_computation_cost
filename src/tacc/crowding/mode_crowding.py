@@ -6,6 +6,41 @@ import numpy as np
 import matplotlib.pyplot as plt
 from typing import Dict, Any, Tuple
 import json
+import hashlib
+
+
+def _generate_parameter_seed(K: int, N_max: float, N_min: float, n_points: int, utility_type: str) -> int:
+    """
+    Generate a reproducible seed based on experiment parameters.
+    
+    This ensures that:
+    - Different parameter combinations get different seeds → different random utilities
+    - Same parameter combinations always get the same seed → reproducible results
+    - The seed is deterministic but varies meaningfully with parameters
+    
+    Args:
+        K (int): Number of modes
+        N_max (float): Maximum capacity
+        N_min (float): Minimum capacity
+        n_points (int): Number of capacity points
+        utility_type (str): Type of utility generation
+        
+    Returns:
+        int: Seed value for numpy.random.seed()
+    """
+    # Create a string representation of parameters with sufficient precision
+    param_string = f"crowding_K_{K}_Nmax_{N_max:.8f}_Nmin_{N_min:.8f}_n_{n_points}_type_{utility_type}"
+    
+    # Generate hash from parameters
+    hash_obj = hashlib.md5(param_string.encode())
+    
+    # Convert first 4 bytes of hash to integer for seed
+    seed = int.from_bytes(hash_obj.digest()[:4], byteorder='big')
+    
+    # Keep within valid numpy random seed range (0 to 2^32-1)
+    seed = seed % (2**32)
+    
+    return seed
 
 
 def run_demo(**kwargs) -> plt.Figure:
@@ -22,15 +57,16 @@ def run_demo(**kwargs) -> plt.Figure:
     Returns:
         matplotlib.figure.Figure: The mode crowding visualization
     """
-    # Set random seed for reproducibility
-    np.random.seed(42)
-    
     # Parse parameters
     K = kwargs.get('K', 10)
     N_max = kwargs.get('N_max', 1.0)
     N_min = kwargs.get('N_min', 0.01)
     n_points = kwargs.get('n_points', 100)
     utility_type = kwargs.get('utility_type', 'random')
+    
+    # Set parameter-dependent random seed for reproducible but parameter-specific results
+    seed = _generate_parameter_seed(K, N_max, N_min, n_points, utility_type)
+    np.random.seed(seed)
     
     # Generate baseline utilities
     utilities = generate_utilities(K, utility_type)
@@ -114,9 +150,6 @@ def run_experiment(**kwargs) -> Dict[str, Any]:
     Returns:
         dict: Experiment results containing critical points and metrics
     """
-    # Set random seed for reproducibility
-    np.random.seed(42)
-    
     # Parse parameters
     K = kwargs.get('K', 10)
     N_max = kwargs.get('N_max', 1.0)
@@ -125,6 +158,10 @@ def run_experiment(**kwargs) -> Dict[str, Any]:
     utility_type = kwargs.get('utility_type', 'random')
     threshold = kwargs.get('threshold', 0.1)
     output_dir = kwargs.get('output_dir', None)
+    
+    # Set parameter-dependent random seed for reproducible but parameter-specific results
+    seed = _generate_parameter_seed(K, N_max, N_min, n_points, utility_type)
+    np.random.seed(seed)
     
     # Generate baseline utilities
     utilities = generate_utilities(K, utility_type)

@@ -78,6 +78,11 @@ def main():
     # Print summary with fitment impact analysis
     print(f"\nExperiment completed!")
     print(f"Parameters: depth={results['parameters']['depth']}, alpha={results['parameters']['alpha']}")
+    
+    # Show seed information for debugging
+    from tacc.lattices.diamond import _generate_parameter_seed
+    used_seed = _generate_parameter_seed(fitted_depth, fitted_alpha)
+    print(f"Random seed: {used_seed} (parameter-dependent for reproducible variation)")
     print(f"Metrics:")
     print(f"  Node count: {results['metrics']['node_count']}")
     print(f"  Edge count: {results['metrics']['edge_count']}")
