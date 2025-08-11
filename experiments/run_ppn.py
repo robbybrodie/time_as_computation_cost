@@ -25,8 +25,33 @@ def main():
     
     print("Running PPN Parameter Extraction Experiment...")
     
-    # Test different values of kappa
-    kappa_values = np.linspace(0.5, 3.0, 20)
+    # Check for fitment state from interactive widgets
+    try:
+        from tacc.core.experiment_bridge import get_fitted_kappa, is_fitment_active, get_active_fitment_info
+        
+        if is_fitment_active():
+            fitment_info = get_active_fitment_info()
+            fitted_kappa = get_fitted_kappa()
+            
+            print(f"🎯 USING FITMENT: {fitment_info['name']}")
+            print(f"   Fitted κ: {fitted_kappa:.4f}")
+            print("   This will affect all calculations!")
+            
+            # Use fitted kappa as the primary value, but also show range
+            primary_kappa = fitted_kappa
+            kappa_values = np.linspace(0.5, 3.0, 20)
+            # Make sure the fitted value is included
+            kappa_values = np.unique(np.append(kappa_values, fitted_kappa))
+            kappa_values = np.sort(kappa_values)
+        else:
+            print("🔧 No active fitment - using default parameter range")
+            primary_kappa = 2.0
+            kappa_values = np.linspace(0.5, 3.0, 20)
+            
+    except ImportError:
+        print("🔧 Fitment bridge not available - using default parameter range")
+        primary_kappa = 2.0
+        kappa_values = np.linspace(0.5, 3.0, 20)
     gamma_values = []
     beta_values = []
     
