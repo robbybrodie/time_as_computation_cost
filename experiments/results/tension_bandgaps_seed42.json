@@ -1,0 +1,80 @@
+{
+  "timestamp": 1754889216,
+  "commit": "4d347090774b06dc1fb882d7785c7b6100efac3c",
+  "generator": {
+    "n_points": 50,
+    "noise_sigma": 0.05,
+    "a_true": 2.0,
+    "beta_true": 1.5,
+    "x_min": 0.0,
+    "x_max": 1.0,
+    "seed": 42
+  },
+  "fitment": {
+    "name": "single_param",
+    "params": {
+      "degree": 2
+    }
+  },
+  "families": [
+    {
+      "family": "exponential",
+      "params": {
+        "family": "exponential",
+        "a": 1.9644367826873428,
+        "b": 1.5252805065228694
+      },
+      "val": {
+        "mse": 0.0047054022494759425,
+        "AIC": -21.211669491460853,
+        "BIC": -20.60649930547276,
+        "AICc": -19.497383777175138
+      },
+      "test": {
+        "mse": 0.0023942130714682463
+      }
+    },
+    {
+      "family": "polynomial",
+      "params": {
+        "family": "polynomial",
+        "coefs": [
+          5.0614771982473865,
+          1.7041498071947376,
+          2.096626087814888
+        ],
+        "degree": 2
+      },
+      "val": {
+        "mse": 0.004371387867415245,
+        "AIC": -19.94797664088719,
+        "BIC": -19.040221361905054,
+        "AICc": -15.947976640887191
+      },
+      "test": {
+        "mse": 0.007830099105544419
+      }
+    },
+    {
+      "family": "power_law",
+      "params": {
+        "family": "power_law",
+        "A": 7.143557269484512,
+        "B": 0.5862040430789354
+      },
+      "val": {
+        "mse": 0.3126822956797215,
+        "AIC": 20.75309432698534,
+        "BIC": 21.358264512973435,
+        "AICc": 22.467380041271056
+      },
+      "test": {
+        "mse": NaN
+      }
+    }
+  ],
+  "best_by_AICc": "exponential",
+  "train_size": 30,
+  "val_size": 10,
+  "test_size": 10
+}

@@ -97,7 +97,7 @@ Examples:
         "experiment", 
         nargs="?",
         default="ppn",
-        help="Experiment to run (ppn, dummy, list)"
+        help="Experiment to run (ppn, tension_bandgaps, dummy, list)"
     )
     
     parser.add_argument(
@@ -141,6 +141,28 @@ Examples:
         choices=["json", "yaml", "table"],
         default="json",
         help="Output format"
+    )
+    
+    # Tension bandgaps specific arguments
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+        help="Random seed for experiment (default: 42)"
+    )
+    
+    parser.add_argument(
+        "--n-points",
+        type=int,
+        default=50,
+        help="Number of data points (default: 50)"
+    )
+    
+    parser.add_argument(
+        "--sigma",
+        type=float,
+        default=0.05,
+        help="Noise sigma (default: 0.05)"
     )
     
     args = parser.parse_args()
@@ -234,6 +256,47 @@ Examples:
             experiment_result = run_ppn_experiment(ml_params, bn_params)
         except Exception as e:
             print(f"Error running PPN experiment: {e}")
+            sys.exit(1)
+    elif args.experiment == "tension_bandgaps":
+        try:
+            from tacc.experiments.tension_bandgaps import TBGenParams, run_tension_bandgaps
+            
+            # Create generator parameters from CLI args
+            gen_params = TBGenParams(
+                n_points=args.n_points,
+                noise_sigma=args.sigma,
+                a_true=2.0,  # Fixed
+                beta_true=1.5,  # Fixed
+                x_min=0.0,
+                x_max=1.0,
+                seed=args.seed
+            )
+            
+            print(f"Running Tension Bandgaps experiment with seed={args.seed}")
+            print(f"Generator params: n_points={gen_params.n_points}, sigma={gen_params.noise_sigma}")
+            print(f"Fitment: {fitment_name} with params {fitment_params}")
+            
+            # Run experiment
+            stamp = run_tension_bandgaps(
+                gen_p=gen_params,
+                families=("exponential", "polynomial", "power_law"),
+                fitment=(fitment_name, fitment_params),
+                result_dir="experiments/results"
+            )
+            
+            experiment_result = {
+                "experiment": "tension_bandgaps",
+                "status": "completed",
+                "stamp_path": f"experiments/results/tension_bandgaps_seed{args.seed}.json",
+                "best_model": stamp.get("best_by_AICc"),
+                "commit": stamp.get("commit"),
+                "train_size": stamp.get("train_size"),
+                "val_size": stamp.get("val_size"),
+                "test_size": stamp.get("test_size")
+            }
+            
+        except Exception as e:
+            print(f"Error running Tension Bandgaps experiment: {e}")
             sys.exit(1)
     elif args.experiment == "dummy":
         experiment_result = {
