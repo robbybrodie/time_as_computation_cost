@@ -30,7 +30,17 @@ def main():
     try:
         from tacc.core.experiment_bridge import get_fitted_kappa, is_fitment_active, get_active_fitment_info
         
-        if is_fitment_active():
+        # Check for individual experiment toggle (from notebook)
+        use_fitment = True
+        try:
+            if 'experiment_toggles' in globals() and globals()['experiment_toggles'] is not None:
+                toggle = globals()['experiment_toggles']['mode_crowding']
+                use_fitment = toggle.value
+                print(f"🎛️ Individual toggle: {'ON' if use_fitment else 'OFF'} for Mode Crowding")
+        except:
+            pass  # Fall back to global fitment setting
+        
+        if is_fitment_active() and use_fitment:
             fitment_info = get_active_fitment_info()
             fitted_kappa = get_fitted_kappa()
             

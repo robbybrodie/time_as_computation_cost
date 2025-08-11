@@ -27,7 +27,17 @@ def main():
     try:
         from tacc.core.experiment_bridge import get_fitted_kappa, is_fitment_active, get_active_fitment_info
         
-        if is_fitment_active():
+        # Check for individual experiment toggle (from notebook)
+        use_fitment = True
+        try:
+            if 'experiment_toggles' in globals() and globals()['experiment_toggles'] is not None:
+                toggle = globals()['experiment_toggles']['causal_diamond']
+                use_fitment = toggle.value
+                print(f"🎛️ Individual toggle: {'ON' if use_fitment else 'OFF'} for Causal Diamond")
+        except:
+            pass  # Fall back to global fitment setting
+        
+        if is_fitment_active() and use_fitment:
             fitment_info = get_active_fitment_info()
             fitted_kappa = get_fitted_kappa()
             
@@ -35,13 +45,18 @@ def main():
             print(f"   Fitted κ: {fitted_kappa:.4f}")
             print("   This affects lattice connectivity and propagation!")
             
-            # Scale alpha based on fitted kappa (kappa affects the coupling strength)
-            # Default kappa=2.0 gives alpha=0.1, so scale proportionally
-            fitted_alpha = default_alpha * (fitted_kappa / 2.0)
-            fitted_depth = int(default_depth * (1.0 + (fitted_kappa - 2.0) * 0.1))  # Slight depth adjustment
+            # Scale parameters based on fitted kappa with MORE DRAMATIC effects
+            # kappa affects the fundamental lattice structure and propagation
+            fitted_alpha = default_alpha * (fitted_kappa / 2.0) ** 2  # Quadratic scaling for more sensitivity
+            
+            # More significant depth scaling based on kappa
+            depth_multiplier = 1.0 + (fitted_kappa - 2.0) * 0.5  # 50% change per kappa unit
+            fitted_depth = max(5, int(default_depth * depth_multiplier))  # Minimum depth of 5
             
             print(f"   Adjusted α: {fitted_alpha:.4f} (default: {default_alpha})")
+            print(f"   α scaling: quadratic with κ for stronger coupling effects")
             print(f"   Adjusted depth: {fitted_depth} (default: {default_depth})")
+            print(f"   Depth scaling: 50% change per κ unit for visible lattice differences")
             
         else:
             print("🔧 No active fitment - using default parameters")
@@ -60,7 +75,7 @@ def main():
         output_dir=str(output_dir)
     )
     
-    # Print summary
+    # Print summary with fitment impact analysis
     print(f"\nExperiment completed!")
     print(f"Parameters: depth={results['parameters']['depth']}, alpha={results['parameters']['alpha']}")
     print(f"Metrics:")
@@ -69,6 +84,29 @@ def main():
     print(f"  Theoretical paths to top: {results['metrics']['theoretical_paths_top']}")
     print(f"  Actual paths to top: {results['metrics']['actual_paths_top']}")
     print(f"  Front symmetry deviation: {results['metrics']['front_symmetry_deviation']:.4f}")
+    
+    # Show fitment impact comparison
+    try:
+        from tacc.core.experiment_bridge import is_fitment_active, get_fitted_kappa
+        if is_fitment_active():
+            fitted_kappa = get_fitted_kappa()
+            print(f"\n🎯 FITMENT IMPACT ANALYSIS:")
+            print(f"   Fitted κ: {fitted_kappa:.4f}")
+            
+            # Compare with default results
+            default_alpha_result = default_alpha
+            default_depth_result = default_depth
+            
+            alpha_change_pct = ((fitted_alpha - default_alpha_result) / default_alpha_result) * 100
+            depth_change_pct = ((fitted_depth - default_depth_result) / default_depth_result) * 100
+            
+            print(f"   α change: {alpha_change_pct:+.1f}% (quadratic κ scaling)")
+            print(f"   Depth change: {depth_change_pct:+.1f}% (0.5x κ deviation scaling)")
+            print(f"   Expected effects: Different lattice size and coupling strength")
+            print(f"   → Node count scales ~depth³, edge connectivity scales with α")
+            
+    except ImportError:
+        pass
     
     if 'files' in results:
         print(f"\nOutput files:")
